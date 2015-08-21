@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf190
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red63\green127\blue95;}
+\margl1440\margr1440\vieww15340\viewh13240\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 This program follows the pseudo-code in the Introduction to Algorithm textbook. \
+The main program start on the Production_Main class and there are three major methods:\
+\pard\pardeftab720
+
+\f1\fs22 \cf0 1. importFile();		\
+2. makeGraph();	\
+\pard\pardeftab720
+\cf2 3. drawGraph();\cf0 \
+4. testSelectedVertices();\
+5. testArbitraryGraph();
+\f0\fs24 \
+\
+The first one import the map vertex data from the existing txt file and make it into a graph using following two classes:\
+1. FileProcess.java\
+2. Graph.java\
+3. Vertex.java\
+FileProcess.java separate methods needed for importing a file and facilitate the processing. Graph and Vertex each defines methods and fields needed.\
+\
+Then 
+\f1\fs22 testSelectedVertices() is run to test 3 selected tests and then testArbitraryGraph() is run to test arbitrary user input vertices. Both of these method call the runDijkstra(Integer from, Integer destination) in the Graph.java. The runDijkstra method first reset all variables that may be used in the method and than initialize the distance from the vertex to the source to Float.MAX_VALUE unless it\'92s the source vertex. The nodes are then added to a priority queue. In the while loop, the smallest node was polled every time and it looks at its neighbor and update the neighbor\'92s distance if the new distance is smaller. \
+\
+Comparison with this online code: http://www.algolist.com/code/java/Dijkstra%27s_algorithm\
+This code has a Vertex class and a Edge class while my code has a Vertex class and a Graph class. In the GetShortestPathTo method, this code use a List when my code uses a HashMap\
+\
+When you run the program, you can see console print out all the detailed procedure like this:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 {{\NeXTGraphic Pasted Graphic.tiff \width14420 \height17740
+}¬}
+\f1\fs22 \
+\
+\
+\
+The final result is shown at the end of those information:\
+
+\f0\fs24 {{\NeXTGraphic Pasted Graphic 1.tiff \width14660 \height7780
+}¬}
+\f1\fs22 \
+\
+\
+After the testing the selected vertices, the program will test arbitrary points chosen by user:\
+
+\f0\fs24 {{\NeXTGraphic Pasted Graphic 2.tiff \width14580 \height3100
+}¬}
+\f1\fs22 \
+Just input whichever two point you want to test}
