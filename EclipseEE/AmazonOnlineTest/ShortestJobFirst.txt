@@ -1,0 +1,50 @@
+import java.util.*;
+class Untitled {
+  public static void main(String[] args) {
+    int[] requestTimes = new int[]{0,1,3,9};
+    int[] durations = new int[]{2,1,7,5};
+
+//    if (requestTimes==null||requestTimes.length==0||durations==null||durations.length==0) return 0;
+
+            // duration -> request
+            int curTime = 0+durations[0];
+            int waitTime = 0;
+            int index = 0;
+            int length = durations.length;
+
+            ArrayList<Job> queue = new ArrayList<Job>();
+            for (int i = 1; i < length; i++) {
+                queue.add(new Job(requestTimes[i], durations[i]));
+            }
+            Comparator<Job> comparator = new Comparator<Job>() {
+              public int compare(Job j1, Job j2) {
+                  return j1.duration-j2.duration;
+              }
+            };
+            Collections.sort(queue, comparator);
+
+            for (int i = 0; i < length-1; i++) {
+                Job job = queue.get(i);
+
+          System.out.println(job.time + "-"+job.duration);
+
+                waitTime += curTime-job.time;
+                curTime += job.duration;
+      System.out.println("-"+waitTime + "-"+curTime);
+
+            }
+
+
+    System.out.println(waitTime);
+    System.out.println(waitTime/length);
+  }
+}
+
+class Job {
+    public int time;
+    public int duration;
+    public Job (int time, int duration) {
+        this.time = time;
+        this.duration = duration;
+    }
+}
